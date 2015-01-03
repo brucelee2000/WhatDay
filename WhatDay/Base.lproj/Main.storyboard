@@ -31,14 +31,24 @@
                                     <action selector="displayDay:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wd8-7b-KaH"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5o-W1-Amb">
+                                <rect key="frame" x="0.0" y="261" width="600" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="drF-cV-Tbd"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="jdR-Tf-kfj"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="leading" secondItem="tlB-xx-a3J" secondAttribute="leading" id="BfM-AS-ADB"/>
                             <constraint firstAttribute="trailing" secondItem="tlB-xx-a3J" secondAttribute="trailing" id="E0f-9e-Zyn"/>
                             <constraint firstItem="tlB-xx-a3J" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="Fzf-ke-14q"/>
                             <constraint firstItem="7kz-ay-Dav" firstAttribute="top" secondItem="tlB-xx-a3J" secondAttribute="bottom" constant="20" id="U1B-R5-EzG"/>
                             <constraint firstItem="tlB-xx-a3J" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="fbM-9c-7Ml"/>
                             <constraint firstItem="7kz-ay-Dav" firstAttribute="centerX" secondItem="tlB-xx-a3J" secondAttribute="centerX" id="mIl-Km-mGA"/>
+                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="trailing" secondItem="tlB-xx-a3J" secondAttribute="trailing" id="yja-QD-6dn"/>
+                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="top" secondItem="tlB-xx-a3J" secondAttribute="bottom" constant="39" id="ytQ-7H-Nzc"/>
                         </constraints>
                     </view>
                     <connections>

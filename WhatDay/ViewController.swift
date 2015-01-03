@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -34,7 +34,29 @@ class ViewController: UIViewController {
         // Show the alert
         self.presentViewController(myAlert, animated: true, completion: nil)
     }
-  
+    
+    let moodArray = ["Happy", "Sad", "Maudlin", "Ecstatic", "Overjoyed", "Optimistic", "Relaxed"]
+
+    // +--- UIPickerViewDataSource Protocol Required Methods ---+
+    // !!Need to manually connect Picker View to VC in storyboard
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return moodArray.count
+    }
+    
+    // +--- UIPickerViewDelegate Protocal Required methods ---+
+    // !!Need to manually connect Picker View to VC in storyboard
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return moodArray[row]
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
