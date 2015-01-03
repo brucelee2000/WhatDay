@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,13 +18,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tlB-xx-a3J">
-                                <rect key="frame" x="0.0" y="60" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="441950096.49243098">
                                     <!--2015-01-03 03:54:56 +0000-->
                                 </date>
                             </datePicker>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="random-phases" translatesAutoresizingMaskIntoConstraints="NO" id="t89-kD-sWz">
+                                <rect key="frame" x="16" y="250" width="568" height="350"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kz-ay-Dav">
-                                <rect key="frame" x="240" y="242" width="120" height="30"/>
+                                <rect key="frame" x="240" y="196" width="120" height="30"/>
                                 <state key="normal" title="What day is that?">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -32,23 +36,56 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5o-W1-Amb">
-                                <rect key="frame" x="0.0" y="261" width="600" height="162"/>
+                                <rect key="frame" x="16" y="242" width="568" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="drF-cV-Tbd"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="jdR-Tf-kfj"/>
                                 </connections>
                             </pickerView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNB-CN-J2l">
+                                <rect key="frame" x="0.0" y="472" width="600" height="128"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qGv-cg-5In">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This region is blurred but not the text inside" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSD-RL-wTH">
+                                            <rect key="frame" x="176" y="35" width="248" height="57"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="248" id="fjR-5w-ThM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JSD-RL-wTH" firstAttribute="top" secondItem="qGv-cg-5In" secondAttribute="top" constant="35" id="JDs-PU-3dN"/>
+                                        <constraint firstItem="JSD-RL-wTH" firstAttribute="centerX" secondItem="qGv-cg-5In" secondAttribute="centerX" id="TO2-c6-ZXW"/>
+                                        <constraint firstAttribute="bottom" secondItem="JSD-RL-wTH" secondAttribute="bottom" constant="36" id="jeQ-JE-DTK"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="leading" secondItem="tlB-xx-a3J" secondAttribute="leading" id="BfM-AS-ADB"/>
-                            <constraint firstAttribute="trailing" secondItem="tlB-xx-a3J" secondAttribute="trailing" id="E0f-9e-Zyn"/>
-                            <constraint firstItem="tlB-xx-a3J" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="Fzf-ke-14q"/>
-                            <constraint firstItem="7kz-ay-Dav" firstAttribute="top" secondItem="tlB-xx-a3J" secondAttribute="bottom" constant="20" id="U1B-R5-EzG"/>
-                            <constraint firstItem="tlB-xx-a3J" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="fbM-9c-7Ml"/>
-                            <constraint firstItem="7kz-ay-Dav" firstAttribute="centerX" secondItem="tlB-xx-a3J" secondAttribute="centerX" id="mIl-Km-mGA"/>
-                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="trailing" secondItem="tlB-xx-a3J" secondAttribute="trailing" id="yja-QD-6dn"/>
-                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="top" secondItem="tlB-xx-a3J" secondAttribute="bottom" constant="39" id="ytQ-7H-Nzc"/>
+                            <constraint firstItem="t89-kD-sWz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="3Ik-pO-nE4"/>
+                            <constraint firstItem="t89-kD-sWz" firstAttribute="leading" secondItem="Z5o-W1-Amb" secondAttribute="leading" id="FxC-Us-2bs"/>
+                            <constraint firstItem="sNB-CN-J2l" firstAttribute="trailing" secondItem="tlB-xx-a3J" secondAttribute="trailing" id="HOe-q4-3HL"/>
+                            <constraint firstItem="7kz-ay-Dav" firstAttribute="top" secondItem="tlB-xx-a3J" secondAttribute="bottom" constant="14" id="I6t-m7-myh"/>
+                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="centerX" secondItem="7kz-ay-Dav" secondAttribute="centerX" id="L4b-Gc-rKX"/>
+                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="top" secondItem="7kz-ay-Dav" secondAttribute="bottom" constant="16" id="N3n-J3-UXc"/>
+                            <constraint firstItem="Z5o-W1-Amb" firstAttribute="trailing" secondItem="t89-kD-sWz" secondAttribute="trailing" id="SMP-s0-siq"/>
+                            <constraint firstItem="tlB-xx-a3J" firstAttribute="centerX" secondItem="7kz-ay-Dav" secondAttribute="centerX" id="V6Y-LR-yWH"/>
+                            <constraint firstItem="7kz-ay-Dav" firstAttribute="top" secondItem="t89-kD-sWz" secondAttribute="top" constant="-54" id="Vmh-vW-PzX"/>
+                            <constraint firstItem="t89-kD-sWz" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="Y0z-Ir-H33"/>
+                            <constraint firstItem="sNB-CN-J2l" firstAttribute="top" secondItem="Z5o-W1-Amb" secondAttribute="bottom" constant="68" id="YTz-ZC-hih"/>
+                            <constraint firstItem="tlB-xx-a3J" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bDE-cF-02D"/>
+                            <constraint firstItem="sNB-CN-J2l" firstAttribute="leading" secondItem="tlB-xx-a3J" secondAttribute="leading" id="hnF-DQ-dz4"/>
+                            <constraint firstItem="sNB-CN-J2l" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="hvS-Lp-QFL"/>
+                            <constraint firstAttribute="trailing" secondItem="tlB-xx-a3J" secondAttribute="trailing" id="kWf-W0-0wX"/>
+                            <constraint firstItem="tlB-xx-a3J" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="lw4-68-S21"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Z5o-W1-Amb" secondAttribute="bottom" constant="196" id="qeJ-o0-MCi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -57,6 +94,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="517" y="425"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="random-phases" width="1400" height="1394"/>
+    </resources>
 </document>
